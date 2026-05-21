@@ -1,0 +1,54 @@
+button {
+    padding: 15px 25px;
+    width: 250px;
+    border-radius: 20px;
+    border: none;
+    background-color:pink;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px;
+    transition: 0.2s;
+
+}
+
+button:hover {
+    background-color: hotpink;
+    color: white;
+    transform: scale(1.08);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+img {
+    width: 300px;
+    border-radius: 20px;
+}
+
+img:hover {
+    width: 350px;
+}
+
+body {
+    background-color: #fff4f8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.card {
+    background-color: white;
+    width: 350px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff69a6;
+}
+
+p {
+    font-size: 20px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My silly webpage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Dooly Treat Counter 🥣</h1>
+        <img src="dooly_1.png">
+    
+        <p id="doolyMood">Dooly is hungry 😿</p>
+        <p>Please feed him ⬇️ </p>
+        <button id="feedButton">Feed Dooly 🍼</button>
+    
+        <p id="treatCount">Treats given: 0</p>
+        <p id="doolyEmotion">Dooly is waiting for treats 😾</p>
+        
+        <button id="treatButton">Give Treat 🍗</button>
+        <button id="resetButton">Reset Treats 🔄</button>
+    </div>
+
+    <script>
+        // Button hover project
+        const button = document.getElementById("feedButton");
+        const p = document.getElementById("doolyMood");
+
+        button.addEventListener("mouseover", function () {
+            button.textContent = "FEED DOOLY NOW!!!";
+        });
+
+        button.addEventListener("mouseout", function () {
+            button.textContent = "Feed Dooly 🍼";
+        });
+
+
+        button.addEventListener("click", function () {
+        
+            if (p.textContent === "Dooly is hungry 😿") {
+                p.textContent = "Dooly is full 😸💖";
+            } 
+
+            else {
+            p.textContent = "Dooly is hungry 😿";
+            }
+        });
+        
+        // Treat counter project
+        const treatButton = document.getElementById("treatButton");
+        const treatText = document.getElementById("treatCount");
+
+        let treats = 0;
+
+        treatButton.addEventListener("click", function () {
+
+            treats = treats + 1;
+
+            treatText.textContent = "Treats given: " + treats;
+
+        });
+
+        // Emotion project
+        const emotionText = document.getElementById("doolyEmotion");
+
+        treatButton.addEventListener("click", function () {
+            if (treats === 0) {
+                emotionText.textContent = "Dooly is waiting for treats 😾";
+            }
+            
+            else if (treats > 5) {
+                emotionText.textContent = "TOO MANY TREATS 😾💢";
+            }
+            else if (treats > 2) {
+                emotionText.textContent = "Dooly is suspicious 😼❓";
+            }
+            
+            else {
+                emotionText.textContent = "Dooly is happy 😸❤️";
+            }
+
+
+        });
+    
+        // Reset treats button project
+        const resetButton = document.getElementById("resetButton");
+    
+        resetButton.addEventListener("click", function () {
+            treats = 0;
+            treatText.textContent = "Treats given: 0";
+            emotionText.textContent = "Dooly is waiting for treats 😾";
+
+        });
+    
+
+    </script>
+</body>
+</html>
