@@ -5,91 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dooly Project</title>
     <link rel="stylesheet" href="styles.css">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="card">
         <h1>Dooly Treat Counter 🥣</h1>
-        <img src="dooly_1.png">
+        <img src="dooly_1.png" alt="Dooly the cat">
     
-        <p id="doolyMood">Dooly is hungry 😿</p>
+        <p id="doolyEmotion">Dooly is hungry 😿</p>
+        <!-- <p id="doolyMood">Dooly is hungry 😿</p> -->
+        <p id="doolySpeech">"Feed me, human 😼"</p>
+
+           <div class="progressBox">
+               <div id="progressBar"></div>
+           </div>
         <p>Please feed him ⬇️ </p>
-        <button id="feedButton">Feed Dooly 🍼</button>
-    
+
+        <button id="feedButton">Feed Dooly 🍗</button>
+        <p id="achievement"></p>
         <p id="treatCount">Treats given: 0</p>
-        <p id="doolyEmotion">Dooly is waiting for treats 😾</p>
-        
-        <button id="treatButton">Give Treat 🍗</button>
+      
+        <!-- <button id="treatButton">Give Treat 🍗</button> -->
         <button id="resetButton">Reset Treats 🔄</button>
+
+        <p class="footer">Made by Phiriya 🐾</p>
     </div>
 
     <script>
         // Button hover project
-        const button = document.getElementById("feedButton");
-        const p = document.getElementById("doolyMood");
+        const treatButton = document.getElementById("feedButton");
 
-        button.addEventListener("mouseover", function () {
-            button.textContent = "FEED DOOLY NOW!!!";
-        });
-
-        button.addEventListener("mouseout", function () {
-            button.textContent = "Feed Dooly 🍼";
-        });
-
-
-        button.addEventListener("click", function () {
+        treatButton.addEventListener("mouseover", function () {
+            if (treatButton.disabled === true) {
+            treatButton.textContent = "NOPE! 🚫";
+            }
+            else {
+                treatButton.textContent = "FEED DOOLY NOW! 🫵🏻";
+            }
         
-            if (p.textContent === "Dooly is hungry 😿") {
-                p.textContent = "Dooly is full 😸💖";
-            } 
+        });
+
+        treatButton.addEventListener("mouseout", function () {
+            if (treatButton.disabled === true) {
+            treatButton.textContent = "NOPE! 🚫";
+            }
 
             else {
-            p.textContent = "Dooly is hungry 😿";
-            }
-        });
-        
-        // Treat counter project
-        const treatButton = document.getElementById("treatButton");
-        const treatText = document.getElementById("treatCount");
+                treatButton.textContent = "Feed Dooly 🍗";
+            } 
 
+        });
+
+
+        // Speech bubble project
+        const speechText = document.getElementById("doolySpeech");
+        const progressBar = document.getElementById("progressBar");
+
+
+        
+        // Treat counter project + Emotion project + Achievement project + Shake animated project
+        const treatText = document.getElementById("treatCount");
+        const emotionText = document.getElementById("doolyEmotion");
+        const achievementText = document.getElementById("achievement");
+        const card = document.querySelector(".card");
+
+        const meowSound = new Audio("meow.mp3");
+        const achievementSound = new Audio("achievement-bling.mp3");
+        const errorSound = new Audio("error.mp3");
+        const resetSound = new Audio("reset.mp3");
+        
         let treats = 0;
 
         treatButton.addEventListener("click", function () {
 
             treats = treats + 1;
+            progressBar.style.width = treats * 10 + "%";
+            meowSound.currentTime = 0;
+            meowSound.play();
+
+            if (treats === 5) {
+               achievementText.style.display = "inline-block";
+
+               achievementText.textContent = "🏆 Achievement unlocked: Favorite Human 🎉 ";
+
+               achievementSound.currentTime = 0;
+               achievementSound.play();
+            }
+
+            else if (treats === 10) {
+                achievementText.style.display = "inline-block";
+
+                achievementText.textContent = "🏆 Achievement unlocked: Overfeeding Expert 😭";
+
+                achievementSound.currentTime = 0;
+                achievementSound.play();
+            }
+
+            else {
+                achievementText.style.display = "none";
+                achievementText.textContent = "";
+            }
+            
 
             treatText.textContent = "Treats given: " + treats;
+               if (treats > 10) {
+                emotionText.textContent = "THAT IS ENOUGH!!! DOOLY IS FAT NOW";
+                speechText.textContent = '"NO MORE!!! 😾🚨"';
+                progressBar.style.width = "100%";
+
+                treatButton.textContent = "NOPE! 🚫";
+                treatButton.disabled = true;
+
+                document.querySelector(".card")
+                .style.backgroundColor = "#ffe0e0";
+                progressBar.style.backgroundColor = "red";
+
+                card.classList.add("shake");
+                setTimeout(function () {
+                   card.classList.remove("shake");
+                }, 400);
+
+                errorSound.currentTime = 0;
+                errorSound.play();
+               }
+
+               else if (treats > 8) {
+                emotionText.textContent = "Dooly is getting too full";
+                speechText.textContent = '"I am getting full...😾💢"';
+                
+                progressBar.style.backgroundColor = "orange";
+               }
+
+               else if (treats > 5) {
+                emotionText.textContent = "TOO MANY TREATS";
+                speechText.textContent = '"Bro... slow down 🙀⁉️"';
+
+                progressBar.style.backgroundColor = "orange";
+               }
+
+               else if (treats > 2) {
+                emotionText.textContent = "Dooly is suspicious";
+                speechText.textContent = '"Hmm... why so many treats? 😼❓"';
+
+                progressBar.style.backgroundColor = "yellow";
+               }
+            
+               else {
+                emotionText.textContent = "Dooly is happy";
+                speechText.textContent = '"YUM!!! 😻❤️"';
+
+                progressBar.style.backgroundColor = "lightgreen";
+               }
 
         });
 
-        // Emotion project
-        const emotionText = document.getElementById("doolyEmotion");
 
-        treatButton.addEventListener("click", function () {
-            if (treats === 0) {
-                emotionText.textContent = "Dooly is waiting for treats 😾";
-            }
-            
-            else if (treats > 5) {
-                emotionText.textContent = "TOO MANY TREATS 😾💢";
-            }
-            else if (treats > 2) {
-                emotionText.textContent = "Dooly is suspicious 😼❓";
-            }
-            
-            else {
-                emotionText.textContent = "Dooly is happy 😸❤️";
-            }
-
-
-        });
-    
         // Reset treats button project
         const resetButton = document.getElementById("resetButton");
     
         resetButton.addEventListener("click", function () {
             treats = 0;
             treatText.textContent = "Treats given: 0";
-            emotionText.textContent = "Dooly is waiting for treats 😾";
+            emotionText.textContent = "Dooly is waiting for treats";
+
+            speechText.textContent = '"Feed me, human 😽"';
+            progressBar.style.width = "0%";
+
+            treatButton.disabled = false;
+            treatButton.textContent = "Feed Dooly 🍗";
+
+            document.querySelector(".card")
+           .style.backgroundColor = "white";
+
+           achievementText.textContent = "";
+           achievementText.style.display = "none";
+
+           resetSound.currentTime = 0;
+           resetSound.play();
 
         });
     
