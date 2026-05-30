@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="card">
-        <h1>Dooly Treat Counter 🥣</h1>
+        <h1>Dooly<br>Treat Counter</h1>
         <img src="dooly_1.png" alt="Dooly the cat">
     
         <p id="doolyEmotion">Dooly is hungry 😿</p>
@@ -121,7 +121,7 @@
                 treatButton.disabled = true;
 
                 document.querySelector(".card")
-                .style.backgroundColor = "#ffe0e0";
+                // .style.backgroundColor = "#ffe0e0";
                 progressBar.style.backgroundColor = "red";
 
                 card.classList.add("shake");
@@ -180,6 +180,8 @@
 
             document.querySelector(".card")
            .style.backgroundColor = "white";
+
+           progressBar.style.backgroundColor = "lightgreen";
 
            achievementText.textContent = "";
            achievementText.style.display = "none";
