@@ -1,14 +1,17 @@
 button {
     padding: 15px 25px;
     width: 250px;
-    border-radius: 20px;
+    border-radius: 25px;
     border: none;
     background-color:#E1EfCA;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     cursor: pointer;
     margin: 8px;
+    box-shadow:
+        8px 8px 18px rgba(0,0,0,0.08),
+       -8px -8px 18px rgba(255,255,255,0.9);
     transition: 0.2s;
     font-family: "Avenir Next", "avenir", sans-serif;
 }
@@ -64,8 +67,13 @@ p {
 }
 
 #doolyEmotion {
-    font-size: 28px;
+    /* font-size: 22px;
     font-weight: bold;
+    margin: 0 0 8px; */
+    font-style: italic;
+    font-size: 18px;
+    margin: 8px 0 0 0;
+    color: #555;
 }
 
 button:disabled {
@@ -80,15 +88,18 @@ button:disabled {
 }
 
 #doolySpeech {
-    background-color: #fff0f6;
+    /* background-color: #fff0f6;
     padding: 12px;
-    border-radius: 18px;
+    border-radius: 18px; */
+
     font-style: italic;
+    margin: 0;
+    color: #555;
 }
 
 .progressBox {
     width: 100%;
-    height: 18px;
+    height: 20px;
     background-color: #eee;
     border-radius: 999px;
     overflow: hidden;
@@ -98,6 +109,33 @@ button:disabled {
     width: 0%;
     height: 100%;
     transition: 0.3s;
+}
+
+.hungerBox {
+  /* background-color: #fffafc; */
+  background-color: #fff4f8;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 85%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.hungerTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hungerTitle p {
+    margin: 0;
+}
+
+#hungerPercent {
+    font-weight: 900;
 }
 
 #achievement {

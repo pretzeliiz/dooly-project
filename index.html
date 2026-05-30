@@ -15,21 +15,28 @@
     <div class="card">
         <h1>Dooly<br>Treat Counter</h1>
         <img src="dooly_1.png" alt="Dooly the cat">
+
+        <p id="doolySpeech">"Feed me, human 🥣"</p>
     
-        <p id="doolyEmotion">Dooly is hungry 😿</p>
-        <!-- <p id="doolyMood">Dooly is hungry 😿</p> -->
-        <p id="doolySpeech">"Feed me, human 😼"</p>
+        <div class="hungerBox">
+           <div class="hungerTitle">
+               <p>Dooly's Hunger</p>
+               <p id="hungerPercent">0%</p>
+           </div>
 
            <div class="progressBox">
                <div id="progressBar"></div>
            </div>
+
+           <p id="doolyEmotion">Dooly is hungry...</p>
+        </div>
+        
         <p>Please feed him ⬇️ </p>
 
         <button id="feedButton">Feed Dooly 🍗</button>
         <p id="achievement"></p>
         <p id="treatCount">Treats given: 0</p>
       
-        <!-- <button id="treatButton">Give Treat 🍗</button> -->
         <button id="resetButton">Reset Treats 🔄</button>
 
         <p class="footer">Made by Phiriya 🐾</p>
@@ -84,6 +91,9 @@
 
             treats = treats + 1;
             progressBar.style.width = treats * 10 + "%";
+
+            document.getElementById("hungerPercent").textContent = treats * 10 + "%";
+
             meowSound.currentTime = 0;
             meowSound.play();
 
@@ -172,7 +182,7 @@
             treatText.textContent = "Treats given: 0";
             emotionText.textContent = "Dooly is waiting for treats";
 
-            speechText.textContent = '"Feed me, human 😽"';
+            speechText.textContent = '"Feed me, human 🥣"';
             progressBar.style.width = "0%";
 
             treatButton.disabled = false;
@@ -182,6 +192,8 @@
            .style.backgroundColor = "white";
 
            progressBar.style.backgroundColor = "lightgreen";
+           document.getElementById("hungerPercent").textContent = "0%";
+
 
            achievementText.textContent = "";
            achievementText.style.display = "none";
@@ -190,8 +202,7 @@
            resetSound.play();
 
         });
-    
-
     </script>
+
 </body>
 </html>
