@@ -136,9 +136,9 @@ p {
 
 
 #treatCount {
-    /* font-size: 28px; */
-    /* font-weight: bold; */
+    font-weight: bold;
 }
+
 
 #doolyEmotion {
     font-style: italic;
