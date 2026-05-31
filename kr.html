@@ -13,20 +13,20 @@
 </head>
 <body>
     <div class="card">
-        <a href="kr.html" class="languageLink">
+        <a href="index.html" class="languageLink">
             <button class="languageButton">
-            한국어 🇰🇷
+            English 🇺🇸
             </button>
         </a>
-
-        <h1>Dooly<br>Treat Counter</h1>
+        
+        <h1>두리<br>간식 카운터</h1>
         <img src="dooly_1.png" alt="Dooly the cat">
 
-        <p id="doolySpeech">"Feed me, human 🥣"</p>
+        <p id="doolySpeech">"집사야 밥 줘라 🥣"</p>
     
         <div class="hungerBox">
            <div class="hungerTitle">
-               <p>Dooly's Hunger</p>
+               <p>두리의 배고픔</p>
                <p id="hungerPercent">0%</p>
            </div>
 
@@ -34,16 +34,16 @@
                <div id="progressBar"></div>
            </div>
 
-           <p id="doolyEmotion">Dooly is hungry...</p>
+           <p id="doolyEmotion">둘리가 배고파...</p>
         </div>
         
-        <p>Please feed him ⬇️ </p>
+        <p>둘리에게 맘마 주세요 ⬇️ </p>
 
-        <button id="feedButton">Feed Dooly 🍗</button>
+        <button id="feedButton">간식 주기 🍗</button>
         <p id="achievement"></p>
-        <p id="treatCount">Treats given: 0</p>
+        <p id="treatCount">간식 개수: 0</p>
       
-        <button id="resetButton">Reset Treats 🔄</button>
+        <button id="resetButton">간식 초기화 🔄</button>
 
         <p class="footer">Made by Phiriya 🐾</p>
     </div>
@@ -87,21 +87,21 @@
             buttonhoverSound.play();
 
             if (treatButton.disabled === true) {
-            treatButton.textContent = "NOPE! 🚫";
+            treatButton.textContent = "노오오옵! 🚫";
             }
             else {
-                treatButton.textContent = "FEED DOOLY NOW! 🫵🏻";
+                treatButton.textContent = "둘리에게 간식 주라! 🫵🏻";
             }
         
         });
 
         treatButton.addEventListener("mouseout", function () {
             if (treatButton.disabled === true) {
-            treatButton.textContent = "NOPE! 🚫";
+            treatButton.textContent = "노오오옵! 🚫";
             }
 
             else {
-                treatButton.textContent = "Feed Dooly 🍗";
+                treatButton.textContent = "간식 주기 🍗";
             } 
 
         });
@@ -138,7 +138,7 @@
             if (treats === 5) {
                achievementText.style.display = "inline-block";
 
-               achievementText.textContent = "🏆 Achievement unlocked: Favorite Human 🎉 ";
+               achievementText.textContent = "🏆 목표 달성: 두리 최애 집사 🎉";
 
                achievementSound.currentTime = 0;
                achievementSound.play();
@@ -147,7 +147,7 @@
             else if (treats === 10) {
                 achievementText.style.display = "inline-block";
 
-                achievementText.textContent = "🏆 Achievement unlocked: Overfeeding Expert 😭";
+                achievementText.textContent = "🏆 목표 달성: 두리 살찌우기 전문가 😭";
 
                 achievementSound.currentTime = 0;
                 achievementSound.play();
@@ -159,16 +159,16 @@
             }
             
 
-            treatText.textContent = "Treats given: " + treats;
+            treatText.textContent = "간식 개수: " + treats;
                if (treats > 10) {
-                emotionText.textContent = "THAT IS ENOUGH!!! DOOLY IS FAT NOW";
-                speechText.textContent = '"NO MORE!!! 😾🚨"';
+                emotionText.textContent = "이제 그만!!! 두리 뚱냥이 된다";
+                speechText.textContent = '"그만!!! 😾🚨"';
                 
                 progressBar.style.width = "100%";
 
                 document.getElementById("hungerPercent").textContent = "100%";
 
-                treatButton.textContent = "NOPE! 🚫";
+                treatButton.textContent = "노오오옵! 🚫";
                 treatButton.disabled = true;
 
                 // card.style.backgroundColor = "#ffe0e0";
@@ -184,29 +184,29 @@
                }
 
                else if (treats > 8) {
-                emotionText.textContent = "Dooly is getting too full";
-                speechText.textContent = '"I am getting full...😾💢"';
+                emotionText.textContent = "두리 배가 너무 빵빵하다";
+                speechText.textContent = '"좀 배불르다냥...😾💢"';
                 
                 progressBar.style.backgroundColor = "orange";
                }
 
                else if (treats > 5) {
-                emotionText.textContent = "TOO MANY TREATS";
-                speechText.textContent = '"Bro... slow down 🙀⁉️"';
+                emotionText.textContent = "간식이 너무 많다냥";
+                speechText.textContent = '"야...천천히 좀 줘라 🙀⁉️"';
 
                 progressBar.style.backgroundColor = "yellow";
                }
 
                else if (treats > 2) {
-                emotionText.textContent = "Dooly is suspicious";
-                speechText.textContent = '"Hmm... why so many treats? 😼❓"';
+                emotionText.textContent = "두리가 의심하고 있다";
+                speechText.textContent = '"뭐냥...왜 이렇게 많이 주는 거냥 😼❓"';
 
                 progressBar.style.backgroundColor = "lightgreen";
                }
             
                else {
-                emotionText.textContent = "Dooly is happy";
-                speechText.textContent = '"YUM!!! 😻❤️"';
+                emotionText.textContent = "둘리가 행복하다냥";
+                speechText.textContent = '"냠냠!!! 😻❤️"';
 
                 progressBar.style.backgroundColor = "lightblue";
                }
@@ -231,14 +231,14 @@
     
         resetButton.addEventListener("click", function () {
             treats = 0;
-            treatText.textContent = "Treats given: 0";
-            emotionText.textContent = "Dooly is waiting for treats";
+            treatText.textContent = "간식 개수: 0";
+            emotionText.textContent = "두리가 간식을 기다리는 중";
 
-            speechText.textContent = '"Feed me, human 🥣"';
+            speechText.textContent = '"집사야 밥 줘라 🥣"';
             progressBar.style.width = "0%";
 
             treatButton.disabled = false;
-            treatButton.textContent = "Feed Dooly 🍗";
+            treatButton.textContent = "간식 주기 🍗";
 
             // card.style.backgroundColor = "white";
 
